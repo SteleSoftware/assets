@@ -1,6 +1,6 @@
 {
   "name": "@stele/assets-cloudflare-worker",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Cloudflare worker that sits in front of public assets domain and serves from storage",
   "author": "j-arens <arens.joshua@sbcglobal.net>",
   "homepage": "",

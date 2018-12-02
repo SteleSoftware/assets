@@ -1,6 +1,6 @@
 {
   "name": "@stele/assets-storage",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Wrapper for getting and setting assets in google cloud storage",
   "author": "j-arens <arens.joshua@sbcglobal.net>",
   "homepage": "",
