@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "lib": ["es6", "dom"],
+        "target": "es6",
+        "allowSyntheticDefaultImports": true,
+        "composite": true,
+        "declaration": true,
+        "declarationMap": true
+    },
+    "exclude": [
+        "node_modules",
+        "**/__tests__"
+    ],
+    "references": [
+      {"path": "cloudflare-worker"},
+      {"path": "exceptions"},
+      {"path": "storage"}
+    ]
+}
