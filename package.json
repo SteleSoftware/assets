@@ -4,15 +4,15 @@
   "devDependencies": {
     "@types/lodash": "^4.14.118",
     "@types/node": "^10.12.11",
-    "@types/node-fetch": "^2.1.4",
     "jest": "^23.6.0",
     "lerna": "^3.5.1",
+    "tslint": "^5.11.0",
     "typescript": "^3.2.1"
   },
-  "dependencies": {
-    "lodash.flow": "^3.5.0",
-    "lodash.get": "^4.4.2",
-    "lodash.has": "^4.5.2",
-    "lodash.set": "^4.3.2"
+  "dependencies": {},
+  "scripts": {
+    "build": "lerna run build",
+    "lint": "lerna run lint",
+    "lint:fix": "lerna run lint -- --fix"
   }
 }

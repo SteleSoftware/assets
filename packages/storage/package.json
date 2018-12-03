@@ -17,7 +17,17 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "@stele/assets-exceptions": "0.0.1",
+    "lodash.flow": "^3.5.0",
+    "lodash.get": "^4.4.2",
+    "lodash.has": "^4.5.2",
+    "lodash.set": "^4.3.2"
+  },
   "scripts": {
+    "build": "tsc",
+    "lint": "tslint ./src/**/*.ts",
+    "lint:fix": "npm run lint -- --fix",
     "test": "echo \"Error: run tests from root\" && exit 1"
   }
 }

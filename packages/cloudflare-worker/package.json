@@ -18,6 +18,9 @@
     "access": "public"
   },
   "scripts": {
+    "build": "",
+    "lint": "tslint ./src/**/*.ts",
+    "lint:fix": "npm run lint -- --fix",
     "test": "echo \"Error: run tests from root\" && exit 1"
   }
 }
