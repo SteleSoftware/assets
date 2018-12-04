@@ -22,5 +22,9 @@
     "lint": "tslint ./src/**/*.ts",
     "lint:fix": "npm run lint -- --fix",
     "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@stele/assets-exceptions": "0.0.1",
+    "@stele/assets-storage": "0.0.1"
   }
 }

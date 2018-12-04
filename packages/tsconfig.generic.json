@@ -3,7 +3,7 @@
         "module": "commonjs",
         "sourceMap": true,
         "noImplicitAny": false,
-        "lib": ["es6", "dom"],
+        "lib": ["es2017", "dom"],
         "target": "es6",
         "allowSyntheticDefaultImports": true,
         "composite": true,
