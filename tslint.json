@@ -12,7 +12,8 @@
       "member-access": false,
       "no-string-literal": false,
       "arrow-parens": false,
-      "member-ordering": false
+      "member-ordering": false,
+      "variable-name": [true, "ban-keywords"]
   },
   "rulesDirectory": []
 }

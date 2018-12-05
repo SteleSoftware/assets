@@ -3,7 +3,7 @@ import { ErrorCodes, WorkerError } from '@stele/assets-exceptions';
 type ConfineFunc = <T>(fn: (args?: any) => any, limit: number) => (...args: any[]) => T | never;
 
 /**
- * 
+ *
  */
 export const confine: ConfineFunc = (fn, limit) => (...args) => {
   const timeout = setTimeout((): never => {

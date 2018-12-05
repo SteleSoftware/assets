@@ -5,6 +5,9 @@ import { ResolverMap } from './type';
 import { WorkerError, ErrorCodes } from '@stele/assets-exceptions';
 import { Permissions } from '../../permissions';
 import Public from './resolvers/public';
+import Private from './resolvers/private';
+import Protected from './resolvers/protected';
+import Tech from './resolvers/tech';
 
 const map: ResolverMap = {
   [Permissions.Public]: Public,

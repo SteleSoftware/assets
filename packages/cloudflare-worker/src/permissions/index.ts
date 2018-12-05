@@ -5,4 +5,4 @@ export enum Permissions {
   Private,
   Protected,
   Tech,
-};
+}

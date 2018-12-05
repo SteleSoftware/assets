@@ -1,6 +1,6 @@
 
 /**
- * 
+ *
  */
 export const isRequestForAsset = (
   path: string,
@@ -9,7 +9,7 @@ export const isRequestForAsset = (
   .test(path
     .split('/')
     .filter(Boolean)
-    .pop()
+    .pop(),
   );
 
 interface ParsedPath {
@@ -19,7 +19,7 @@ interface ParsedPath {
 }
 
 /**
- * 
+ *
  */
 export const parsePath = (url: string): ParsedPath => {
   const { pathname } = new URL(url);
@@ -29,4 +29,19 @@ export const parsePath = (url: string): ParsedPath => {
     version: parts[1] || '',
     asset: parts[2] || '',
   };
+};
+
+interface ParsedParams {
+  [key: string]: any;
+}
+
+/**
+ *
+ */
+export const parseParams = (url: string): ParsedParams => {
+  const { searchParams } = new URL(url);
+  return Array.from(searchParams.entries()).reduce((obj, [k, v]) => {
+    obj[k] = v;
+    return obj;
+  }, {});
 };

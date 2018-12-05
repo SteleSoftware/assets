@@ -3,7 +3,7 @@
         "module": "commonjs",
         "sourceMap": true,
         "noImplicitAny": false,
-        "lib": ["es2017", "dom"],
+        "lib": ["es2017", "dom", "dom.iterable"],
         "target": "es6",
         "allowSyntheticDefaultImports": true,
         "composite": true,

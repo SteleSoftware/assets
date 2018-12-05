@@ -5,6 +5,8 @@ import * as _has from 'lodash.has';
 import * as _set from 'lodash.set';
 import { getSignedUrl } from './gcs';
 
+export { getSignedUrl };
+
 type AsyncStorageOperation<T> = (app: string) => Promise<T | undefined | never>;
 
 const DATA_FILE = '_data.json';

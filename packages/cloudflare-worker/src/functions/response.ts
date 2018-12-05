@@ -1,7 +1,7 @@
 import { ErrorCodes, WorkerError } from '@stele/assets-exceptions';
 
 /**
- * 
+ *
  */
 export const ensureResponse = (res: unknown): Response | never => {
   if (!(res instanceof Response)) {
@@ -11,10 +11,10 @@ export const ensureResponse = (res: unknown): Response | never => {
     });
   }
   return res;
-}
+};
 
 /**
- *  
+ *
  */
 export const overwriteHeaders = (
   res: Response,

@@ -1,10 +1,11 @@
-import { Middleware, MiddlewareResult } from './type';
 import { confine } from '../functions/generic';
+import Authorize from './authorize';
 import Bypass from './bypass';
 import Cached from './cached';
+import Query from './query';
+import Serve from './serve';
+import { Middleware, MiddlewareResult } from './type';
 import Validate from './validate';
-
-import Authorize from './authorize';
 
 const MAX_EXE_TIME = 5000;
 
@@ -12,18 +13,20 @@ const middlewares = [
   Bypass,
   Cached,
   Validate,
-  DataQuery,
+  Query,
   Authorize,
   Serve,
 ];
 
+type Result = Promise<MiddlewareResult> | MiddlewareResult;
+
 /**
- * 
+ *
  */
 const apply = (
   stack: Middleware[],
   req: Request,
-): MiddlewareResult | Promise<MiddlewareResult> => {
+): Result => {
   let current = 0;
   const next = () => {
     if (current < stack.length) {
@@ -34,9 +37,9 @@ const apply = (
 };
 
 /**
- * 
+ *
  */
-export const middleware = confine<MiddlewareResult | Promise<MiddlewareResult>>(
+export const middleware = confine<Result>(
   apply.bind(null, middlewares),
   MAX_EXE_TIME,
 );

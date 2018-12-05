@@ -1,7 +1,10 @@
 import * as njscrypto from 'crypto';
 import * as flow from 'lodash.flow';
 
+// @TODO
 // import { private_key, client_email } from '../GCS_CREDENTIALS.json'
+const private_key = 'lol';
+const client_email = 'rofl';
 
 const BASE_URL = 'https://storage.googleapis.com';
 

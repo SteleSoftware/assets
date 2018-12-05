@@ -1,26 +1,61 @@
+import * as flow from 'lodash.flow';
 import * as cache from './cache/';
 import { middleware } from './middleware/';
 import { ensureResponse } from './functions/response';
-import { FetchEvent } from './type';
+import { FetchEvent, ErrorHandlerParams } from './type';
 
-addEventListener('fetch', async (event: FetchEvent) => {
+/**
+ * 
+ */
+const processRequest = (event: FetchEvent): Response => {
+  cache.setEvent(event);
+  return flow([
+    middleware,
+    Promise.resolve,
+    ensureResponse,
+  ])(event.request);
+};
+
+/**
+ * 
+ */
+const handleError = ({
+  event,
+  req,
+  res,
+  error,
+}: ErrorHandlerParams): Response => {
+  // log error
+  return new Response(null, {
+    status: 500,
+    statusText: 'Internal server error',
+  });
+};
+
+/**
+ * 
+ */
+const respond = (event: FetchEvent, res: Response) => {
+  res.headers.append('X-Stele-Assets-Worker', '1');
+  event.respondWith(res);
+};
+
+/**
+ * 
+ */
+addEventListener('fetch', (event: FetchEvent) => {
+  const { request } = event;
   let response;
   try {
-    cache.setEvent(event);
-    // response = ensureResponse(middleware(event.request));
-    response = flow([
-      middleware,
-      result => Promise.resolve(result),
-      ensureResponse,
-    ])(event.request)
-  } catch (err) {
-    // log error
-    response = new Response(null, {
-      status: 500,
-      statusText: 'Internal server error',
+    response = processRequest(event);
+  } catch (error) {
+    response = handleError({
+      event,
+      error,
+      req: request,
+      res: response,
     });
   } finally {
-    response.headers.append('X-Stele-Assets-Worker', '1');
-    event.respondWith(response);
+    respond(event, response);
   }
 });
